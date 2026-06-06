@@ -108,6 +108,12 @@ class Settings(_Base):
     dry_run: bool = True
     # Path to a local protocol-facts file used when the Mnemonik MCP is unavailable.
     facts_path: str | None = None
+    # Quality gate: a finished article must score >= min_score (claude-blog's
+    # analyzer) before --from-file publishing is allowed. 0-100.
+    min_score: int = 80
+    # Path to a claude-blog checkout; its scripts/analyze_blog.py scores articles.
+    # Required for --from-file; absence fails the gate closed (nothing publishes).
+    claude_blog_path: str | None = None
 
     telegram: TelegramConfig = Field(default_factory=TelegramConfig)
     discord: DiscordConfig = Field(default_factory=DiscordConfig)
