@@ -14,7 +14,8 @@ from ..models import RenderedPost, SourcePost
 from . import formatters, voice
 
 
-def _enforce_guardrails(text: str) -> None:
+def enforce_guardrails(text: str) -> None:
+    """Raise if `text` contains a banned phrase. Used by both brief- and file-based flows."""
     lowered = text.lower()
     for banned in voice.BANNED_PHRASES:
         if banned in lowered:
@@ -44,7 +45,7 @@ def build_source_post(
         proof = " ".join(f.text for f in facts[:2])
         body = f"{body}\n\nWhy it holds up: {proof}"
 
-    _enforce_guardrails(title + " " + body)
+    enforce_guardrails(title + " " + body)
 
     return SourcePost(
         title=title,
