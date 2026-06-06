@@ -1,0 +1,9 @@
+{
+  "$comment": "Wire the Mnemonik protocol MCP into the agent host so grounding/mnemonik.py can call mnemonic_recall / mnemonic_sign_memory / mnemonic_verify. Replace the hosted endpoint or command with your install. Secrets must come from the environment, never inline.",
+  "mcpServers": {
+    "mnemonik": {
+      "type": "http",
+      "url": "https://mcp.mnemonik.xyz/mcp"
+    }
+  }
+}

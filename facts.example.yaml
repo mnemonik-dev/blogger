@@ -1,0 +1,10 @@
+# Mnemonik protocol facts used to ground content when the Mnemonik MCP is offline.
+# Copy to facts.yaml and refine against the official BRAND/VOICE. Each entry should
+# be a single, checkable claim. Prefer claims that are (or can be) attested.
+facts:
+  - "Mnemonik is a protocol for verifiable memory: agents recall past decisions and cryptographically prove them."
+  - "Memories are signed attestations: canonical CBOR, a blake3 content hash, and a COSE_Sign1 Ed25519 signature."
+  - "Attestations are stored on Arweave and anchored as an SPL Memo on Solana, making the record tamper-evident."
+  - "Recall is semantic search over an agent's attested memory pool."
+  - "Identity is portable via did:sol and did:key."
+  - "Local mode is free and offline; participate mode anchors on-chain and may incur cost."
